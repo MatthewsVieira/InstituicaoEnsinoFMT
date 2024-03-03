@@ -2,14 +2,18 @@ package br.com.instituicao.alunocurso.model;
 
 import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 public class AlunoModel {
 
     private static Integer proximoId = 1;
+    @Getter private static List<AlunoModel> alunos = new ArrayList<>();
 
     @Setter(AccessLevel.NONE) private Integer id;
     private String nome;
@@ -19,4 +23,9 @@ public class AlunoModel {
         return proximoId++;
     }
 
+    public static AlunoModel adicionar(AlunoModel aluno) {
+        aluno.getProximoId();
+        alunos.add(aluno);
+        return aluno;
+    }
 }
