@@ -25,7 +25,7 @@ public class AlunoService {
         }
 
         if (aluno.getDataNascimento() == null) {
-            throw new Exception("Data de nascimento é obrigatório!")
+            throw new Exception("Data de nascimento é obrigatório!");
         }
 
         return true;

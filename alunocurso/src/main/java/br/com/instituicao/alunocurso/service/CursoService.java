@@ -26,7 +26,7 @@ public class CursoService {
         }
 
         if(curso.getCargaHoraria() == null) {
-            throw new Exception("Carga Horaria é obrigatório!")
+            throw new Exception("Carga Horaria é obrigatório!");
         }
 
         return true;
