@@ -19,12 +19,12 @@ public class CursoModel {
     private String descricao;
     private Integer cargaHoraria;
 
-    private Integer getProximoId() {
+    private static Integer getProximoId() {
         return proximoId++;
     }
 
     public static CursoModel adicionar(CursoModel curso) {
-        curso.getProximoId();
+        curso.id = getProximoId();
         cursos.add(curso);
         return curso;
     }

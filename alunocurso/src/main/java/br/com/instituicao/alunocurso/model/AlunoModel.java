@@ -19,12 +19,12 @@ public class AlunoModel {
     private String nome;
     private LocalDate dataNascimento;
 
-    private Integer getProximoId() {
+    private static Integer getProximoId() {
         return proximoId++;
     }
 
     public static AlunoModel adicionar(AlunoModel aluno) {
-        aluno.getProximoId();
+        aluno.id = getProximoId();
         alunos.add(aluno);
         return aluno;
     }
