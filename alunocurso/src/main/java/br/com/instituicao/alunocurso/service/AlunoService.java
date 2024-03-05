@@ -31,4 +31,7 @@ public class AlunoService {
         return true;
     }
 
+    public AlunoModel buscarPorId(Integer id) throws Exception {
+        return AlunoModel.buscarPorId(id);
+    }
 }

@@ -1,5 +1,6 @@
 package br.com.instituicao.alunocurso.service;
 
+import br.com.instituicao.alunocurso.model.AlunoModel;
 import br.com.instituicao.alunocurso.model.CursoModel;
 import org.springframework.stereotype.Service;
 
@@ -7,6 +8,12 @@ import java.util.List;
 
 @Service
 public class CursoService {
+
+    private final AlunoService alunoService;
+
+    public CursoService(AlunoService alunoService) {
+        this.alunoService = alunoService;
+    }
 
     public List<CursoModel> buscarTodos() {
         return CursoModel.getCursos();
@@ -32,4 +39,14 @@ public class CursoService {
         return true;
     }
 
+    public CursoModel buscarPorId(Integer id) throws Exception {
+        return CursoModel.buscarPorId(id);
+    }
+
+    public CursoModel matricular(Integer id, Integer alunoId) throws Exception {
+        CursoModel curso = buscarPorId(id);
+        AlunoModel aluno = alunoService.buscarPorId(alunoId);
+        CursoModel.matricular(curso, aluno);
+        return curso;
+    }
 }

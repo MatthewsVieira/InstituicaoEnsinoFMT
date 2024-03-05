@@ -1,7 +1,7 @@
 package br.com.instituicao.alunocurso.controller;
 
+import br.com.instituicao.alunocurso.model.AlunoModel;
 import br.com.instituicao.alunocurso.model.CursoModel;
-import br.com.instituicao.alunocurso.service.AlunoService;
 import br.com.instituicao.alunocurso.service.CursoService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +25,10 @@ public class CursoController {
     @PostMapping
     public CursoModel post(@RequestBody CursoModel curso) throws Exception {
         return cursoService.salvar(curso);
+    }
+
+    @PostMapping("{id}/add-aluno")
+    public CursoModel post(@PathVariable Integer id,@RequestBody AlunoModel aluno) throws Exception {
+        return cursoService.matricular(id, aluno.getId());
     }
 }
